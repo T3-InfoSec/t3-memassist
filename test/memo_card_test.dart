@@ -15,22 +15,28 @@ void main() {
     expect(memCard.state, State.newState.val);
     });
 
-    test('Rate card test', () async {
+    test('Rate card test', () {
       var memCard = MemoCard('Test Knowledge', 'Test Type');
       expect(memCard.state, State.newState.val);
 
       // First rating
       DateTime beforeFirstRate = DateTime.now().toUtc();
       memCard.rateCard('hard');
+      DateTime afterFirstRate = DateTime.now().toUtc();
       expect(memCard.state, State.newState.val);
+      expect(memCard.due!.isAfter(beforeFirstRate), isTrue);
 
       // Second rating
       memCard.rateCard('good');
+      DateTime afterSecondRate = DateTime.now().toUtc();
       expect(memCard.state, State.learning.val);
+      expect(memCard.due!.isAfter(afterFirstRate), isTrue);
 
       // Third rating
       memCard.rateCard('easy');
+      DateTime afterThirdRate = DateTime.now().toUtc();
       expect(memCard.state, State.review.val);
+      expect(memCard.due!.isAfter(afterSecondRate), isTrue);
 
       // Fourth rating to trigger relearning
       memCard.rateCard('again');
