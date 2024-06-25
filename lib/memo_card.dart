@@ -1,20 +1,18 @@
 import 'package:fsrs/fsrs.dart';
 
-// TODO Improve documentation comments
-
-/// A class that represents a memorization card containig knowledge using a spaced repetition algorithm.
+/// A class that represents a memorization card containing knowledge 
+/// using the spaced repetition algorithm fsrs: https://pub.dev/packages/fsrs
 class MemoCard {
-  final dynamic knowledge;
-  final dynamic knowledgeType;
-  FSRS _algorithm;
-  Card _card;
+  dynamic _knowledge;
+  dynamic _knowledgeType;
+  FSRS _algorithm = FSRS();
+  Card _card = Card();
   ReviewLog? _log;
 
-  /// Inizialization of a new MemoCard with the given knowledge and knowledge type.
-  MemoCard(this.knowledge, this.knowledgeType) {
-    _algorithm = FSRS();
-    _card = Card();
-    _log = null;
+  /// Initialization of a new MemoCard with the given knowledge and knowledge type.
+  MemoCard(dynamic knowledge, dynamic knowledgeType) {
+    _knowledge = knowledge;
+    _knowledgeType = knowledgeType;
   }
 
   /// Rates the card knowledge and updates its state and review log.
@@ -29,28 +27,19 @@ class MemoCard {
       "easy": Rating.easy,
     };
 
-    // Repeat the card using the spaced repetition algorithm.
-    var schedulingCards = _algorithm.repeat(_card, now);
-     // Get the new state of card for each rating:
+    var schedulingCards = _algorithm.repeat(_card, now); 
     _card = schedulingCards[rates[rating]]!.card;
-    // Get the review log after rating `Good`:
     _log = schedulingCards[rates[rating]]!.reviewLog;
   }
 
-  /// getters
-  dynamic get knowledge => knowledge;
-  dynamic get knowledgeType => knowledgeType;
+  /// Getters
+  dynamic get knowledge => _knowledge;
+  dynamic get knowledgeType => _knowledgeType;
   DateTime? get due => _card.due;
-  int get state => _log?.state ?? State.New;
+  int get state => _log?.state.val ?? State.newState.val;
 
   @override
   String toString() {
-    return 'Memorization Card for Knowledge: $knowledge; with state: $state and due at: $due.';
+    return 'Memorization Card for Knowledge: $_knowledge; with state: $state and due at: $due.';
   }
-
-// TODO: Review necesity of repr method
-//  String repr() {
-//    String className = runtimeType.toString();
-//    return '$className(knowledge: $knowledge)';
-//  }
 }
