@@ -38,10 +38,11 @@ void main() {
       expect(memCard.state, State.review.val);
       expect(memCard.due!.isAfter(afterSecondRate), isTrue);
 
-      // Fourth rating to trigger relearning
+      // Fourth and fifth rating to trigger relearning
       memCard.rateCard('again');
-      // expect(memCard.state, State.relearning.val); // TODO review how to trigger relearning
-    
+      expect(memCard.state, State.review.val);
+      memCard.rateCard('again');
+      expect(memCard.state, State.relearning.val);
     });
 
     test('ToString test', () {
