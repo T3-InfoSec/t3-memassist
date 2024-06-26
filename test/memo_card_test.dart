@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'package:fsrs/fsrs.dart';
-import 'package:memo_assistant/memo_card.dart';
+import 'package:memo_assistant/src/memo_card.dart';
 
 void main() {
   group('MemoCard tests', () {
@@ -43,6 +43,7 @@ void main() {
       expect(memCard.state, State.review.val);
       memCard.rateCard('again');
       expect(memCard.state, State.relearning.val);
+      expect(memCard.due!.isAfter(afterThirdRate), isTrue);
     });
 
     test('ToString test', () {
