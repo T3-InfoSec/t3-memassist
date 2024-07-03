@@ -37,6 +37,7 @@ class MemoCard {
   /// Getters
   dynamic get knowledge => _knowledge;
   dynamic get knowledgeType => _knowledgeType;
+  /// [due] represents the date and time of the next card revision.
   DateTime? get due => _card.due;
   int get state => _log?.state.val ?? State.newState.val;
 

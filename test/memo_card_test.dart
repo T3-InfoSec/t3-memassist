@@ -4,7 +4,6 @@ import 'package:memo_assistant/src/memo_card.dart';
 
 void main() {
   group('MemoCard tests', () {
-    late MemoCard card;
 
     test('Initialization test', () {
     var memCard = MemoCard('Test Knowledge', 'Test Type');
