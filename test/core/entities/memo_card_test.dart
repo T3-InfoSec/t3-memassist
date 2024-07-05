@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'package:fsrs/fsrs.dart';
-import 'package:memo_assistant/src/memo_card.dart';
+import 'package:memo_assistant/src/core/entities/memo_card.dart';
 
 void main() {
   group('MemoCard tests', () {

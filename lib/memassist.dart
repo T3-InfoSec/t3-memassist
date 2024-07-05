@@ -7,5 +7,5 @@
 // TODO: Complete the library-level documentation comments.
 library;
 
-export 'src/memo_card.dart';
+export 'src/core/entities/memo_card.dart';
 // TODO: Export any libraries intended for clients of this package.
