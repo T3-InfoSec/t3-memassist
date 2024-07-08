@@ -12,7 +12,7 @@ void main() async {
   var box = await Hive.openBox<MemoCardDAO>('memoCardBox');
 
   // Create an instance of MemoCardDAO
-  var memoCard = MemoCardDAO('Knowledge Example', DateTime.now().add(Duration(days: 1)));
+  var memoCard = MemoCardDAO('node hash Example', DateTime.now().add(Duration(days: 1)));
 
   // Store the instance in the box
   await box.put('exampleKey', memoCard);
