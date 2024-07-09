@@ -1,3 +1,6 @@
+/// A class that represents the details of a memorization card.
+///
+/// The details include a hash of the knowledge node and the due date for the next review.
 class MemoCardDetails {
   final String _nodeHash;
   final DateTime _due;
