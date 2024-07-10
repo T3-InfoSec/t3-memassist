@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:fsrs/fsrs.dart';
 import 'package:memo_assistant/memassist.dart';
 
-import 'bit39.dart';
+import 'cli_example/bit39.dart';
 
 void main() {
   // Create an array of MemoCard objects with different knowledge items
