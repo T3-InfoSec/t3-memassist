@@ -21,7 +21,7 @@ void main() {
     });
 
     test('addMemoCard should call addMemoCard on dataSource', () async {
-      MemoCard card = MemoCard('Knowledge Example', DateTime.now());
+      MemoCard card = MemoCard('Knowledge node Example');
 
       await repository.addMemoCard(card);
 
@@ -60,7 +60,7 @@ void main() {
     });
 
     test('deleteMemoCard should call deleteMemoCard on dataSource', () async {
-      MemoCard card = MemoCard('Knowledge Example', DateTime.now());
+      MemoCard card = MemoCard('Knowledge Example node');
 
       await repository.deleteMemoCard(card);
 

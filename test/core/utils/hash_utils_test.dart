@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('HashUtils', () {
     test('should generate a valid SHA-256 hash', () {
-      var input = 'example knowledge';
+      var input = 'example knowledge node';
       var expectedHash = '7a3c02cbf13927ca5056c4d25efb6a3493fe1ca0f61fdf8dff5ebe5c8c1df608';
 
       var result = HashUtils.generateSHA256(input);
@@ -13,8 +13,8 @@ void main() {
     });
 
     test('should generate different hashes for different inputs', () {
-      var input1 = 'example knowledge';
-      var input2 = 'different knowledge';
+      var input1 = 'example knowledge node';
+      var input2 = 'different knowledge node';
 
       var hash1 = HashUtils.generateSHA256(input1);
       var hash2 = HashUtils.generateSHA256(input2);

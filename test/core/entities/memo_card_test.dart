@@ -6,16 +6,15 @@ void main() {
   group('MemoCard tests', () {
 
     test('Initialization test', () {
-    var memCard = MemoCard('Test Knowledge', 'Test Type');
+    var memCard = MemoCard('Test Knowledge node');
     
-    expect(memCard.knowledge, 'Test Knowledge');
-    expect(memCard.knowledgeType, 'Test Type');
+    expect(memCard.node, 'Test Knowledge node');
     expect(memCard.due, isNotNull);
     expect(memCard.state, State.newState.val);
     });
 
     test('Rate card test', () {
-      var memCard = MemoCard('Test Knowledge', 'Test Type');
+      var memCard = MemoCard('Test Knowledge node');
       expect(memCard.state, State.newState.val);
 
       // First rating
@@ -46,8 +45,8 @@ void main() {
     });
 
     test('ToString test', () {
-      var memCard = MemoCard('Test Knowledge', 'Test Type');
-      String expectedString = 'Memorization Card for Knowledge: Test Knowledge; with state: ${memCard.state} and due at: ${memCard.due}.';
+      var memCard = MemoCard('Test Knowledge node');
+      String expectedString = 'Memorization Card for node: Test Knowledge node; with state: ${memCard.state} and due at: ${memCard.due}.';
       expect(memCard.toString(), expectedString);
     });
   });

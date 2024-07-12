@@ -11,9 +11,9 @@ void main() async {
 
   var box = await Hive.openBox<MemoCardDAO>('memoCardBox');
 
-  var memoCard = MemoCard('knowledge', 'knowledgeType');
+  var memoCard = MemoCard('node');
   memoCard.rateCard('good');
-  var nodeHash = HashUtils.generateSHA256(memoCard.knowledge.toString());
+  var nodeHash = HashUtils.generateSHA256(memoCard.node.toString());
 
   var memoCardDAO = MemoCardDAO(nodeHash, memoCard.due);
 

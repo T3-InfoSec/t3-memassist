@@ -7,7 +7,7 @@ Create, add, retrieve, update, and delete memo cards.
 Hash nodes for secure and efficient comparison.
 Track due dates for cards to notify users when a card needs to be reviewed.
 Store and manage memo cards using Hive database. The data stored for each MemoCard includes:
-- nodeHash: A hashed representation of the knowledge node, used for secure comparison with the correct knowledge node hash.
+- nodeHash: A hashed representation of the node, used for secure comparison with the correct node hash.
 - due: The date and time when the card is due for the next review, compared with the system date to notify the user.
 To facilitate this storage, a MemoCardDAO class is defined and used for serialization and deserialization.
 The necessary adapter file memo_card_dao.g.dart is included in the repository. However, if you make changes to the MemoCardDAO class, you need to regenerate the adapter file by running the following command:

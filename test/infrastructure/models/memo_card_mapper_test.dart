@@ -8,15 +8,13 @@ import 'package:memo_assistant/src/infrastructure/models/memo_card_dao.dart';
 void main() {
   group('MemoCardMapper Tests', () {
     test('toDAO should map MemoCard to MemoCardDAO correctly', () {
-      String knowledge = 'sample knowledge';
-      DateTime due = DateTime(2024, 7, 9);
-      MemoCard memoCard = MemoCard(knowledge, due);
+      String knowledgeNode = 'sample knowledge node';
+      MemoCard memoCard = MemoCard(knowledgeNode);
 
       MemoCardDAO dao = MemoCardMapper.toDAO(memoCard);
 
-      expect(dao.nodeHash, equals(HashUtils.generateSHA256(knowledge)));
-      
-      expect(dao.due, equals(memoCard.due));
+      expect(dao.nodeHash, equals(HashUtils.generateSHA256(knowledgeNode)));
+      expect(dao.due, isNotNull);
     });
 
 

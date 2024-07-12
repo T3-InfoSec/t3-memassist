@@ -14,7 +14,7 @@ class MemoCardMapper {
   /// Takes a [MemoCard] as input and returns a [MemoCardDAO].
   static MemoCardDAO toDAO(MemoCard memoCard) {
     return MemoCardDAO(
-      HashUtils.generateSHA256(memoCard.knowledge.toString()),
+      HashUtils.generateSHA256(memoCard.node.toString()),
       memoCard.due,
     );
   }

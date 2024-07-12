@@ -2,12 +2,11 @@ import 'package:fsrs/fsrs.dart';
 import 'package:memo_assistant/memassist.dart';
 
 void main() {
-  // Create an array of MemoCard objects with different knowledge items
   List<MemoCard> cards = [
-    MemoCard('moment weapon pact', 'Formosa'),
-    MemoCard('bone exact certain', 'Formosa'),
-    MemoCard('earth offer verb', 'Formosa'),
-    MemoCard('now cause wave', 'Formosa'),
+    MemoCard('moment weapon pact'),
+    MemoCard('bone exact certain'),
+    MemoCard('earth offer verb'),
+    MemoCard('now cause wave'),
   ];
 
   print('Initial state of cards:');
@@ -50,7 +49,7 @@ void printStates(List<MemoCard> cards) {
   print('');
   for (var card in cards) {
     print('--------------');
-    print(card.knowledge);
+    print(card.node);
     print(fromValue(card.state)!);
     print(card.due!);
   }

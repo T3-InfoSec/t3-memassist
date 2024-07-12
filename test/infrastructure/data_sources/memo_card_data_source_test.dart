@@ -29,7 +29,7 @@ void main() {
     });
 
     test('Save and Retrieve MemoCard', () async {
-      MemoCardDAO card = MemoCardDAO('any knowledge', DateTime.now());
+      MemoCardDAO card = MemoCardDAO('any knowledge node', DateTime.now());
 
       await dataSource.addMemoCard(card);
       var retrievedCard = await dataSource.getMemoCard(card.key as int);
@@ -40,9 +40,9 @@ void main() {
 
     test('Get All MemoCards', () async {
 
-      MemoCardDAO card1 = MemoCardDAO('Knowledge 1', DateTime.now());
-      MemoCardDAO card2 = MemoCardDAO('Knowledge 2', DateTime.now());
-      MemoCardDAO card3 = MemoCardDAO('Knowledge 3', DateTime.now());
+      MemoCardDAO card1 = MemoCardDAO('Knowledge node1', DateTime.now());
+      MemoCardDAO card2 = MemoCardDAO('Knowledge node2', DateTime.now());
+      MemoCardDAO card3 = MemoCardDAO('Knowledge node3', DateTime.now());
 
       await dataSource.addMemoCard(card1);
       await dataSource.addMemoCard(card2);
@@ -61,7 +61,7 @@ void main() {
 
     test('Delete MemoCard', () async {
 
-      MemoCardDAO card = MemoCardDAO('any knowledge', DateTime.now());
+      MemoCardDAO card = MemoCardDAO('any knowledge node', DateTime.now());
       await dataSource.addMemoCard(card);
 
       int key = card.key as int;
