@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:fsrs/fsrs.dart';
-import 'package:memo_assistant/src/memo_card.dart';
+
+import 'package:memory_assistant/memory_assistant.dart';
 
 void main() {
   group('MemoCard tests', () {

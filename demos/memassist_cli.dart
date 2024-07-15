@@ -2,12 +2,14 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:fsrs/fsrs.dart';
-import 'package:memo_assistant/memassist.dart';
 
 import 'bit39.dart';
 
+import 'package:memo_assistant/memory_assistant.dart';
+
+// This is a development test class for demo purposes only.
+// It is not intended for end-user usage and can be removed when testing is complete.
 void main() {
-  // Create an array of MemoCard objects with different knowledge items
   List<MemoCard> cards = [
     MemoCard('moment weapon pact', 'Formosa'),
     MemoCard('bone exact certain', 'Formosa'),

@@ -1,57 +1,35 @@
-import 'package:fsrs/fsrs.dart';
-import 'package:memo_assistant/memassist.dart';
+import 'package:memo_assistant/memory_assistant.dart';
 
 void main() {
-  // Create an array of MemoCard objects with different knowledge items
-  List<MemoCard> cards = [
-    MemoCard('moment weapon pact', 'Formosa'),
-    MemoCard('bone exact certain', 'Formosa'),
-    MemoCard('earth offer verb', 'Formosa'),
-    MemoCard('now cause wave', 'Formosa'),
-  ];
+  // Create a MemoCard object with knowledge and type
+  MemoCard card = MemoCard('moment weapon pact', 'Formosa');
 
-  print('Initial state of cards:');
-  printStates(cards);
+  print('Initial state of the card:');
+  printDetails(card);
 
-  // Rate all cards with different ratings
-  print('\nRating first card as "easy"');
-  cards[0].rateCard('easy');
-  cards[0].rateCard('easy');
+  // Rate the card with different ratings
+  print('\nRating the card as "hard"');
+  card.rateCard('hard');
+  printDetails(card);
 
-  print('\nRating second card as "good"');
-  cards[1].rateCard('good');
-  cards[1].rateCard('good');
+  print('\nRating the card as "good"');
+  card.rateCard('good');
+  printDetails(card);
 
-  print('\nRating third card as "good"');
-  cards[2].rateCard('good');
-  cards[2].rateCard('good');
-  cards[2].rateCard('good');
-  
+  print('\nRating the card as "easy"');
+  card.rateCard('easy');
+  printDetails(card);
 
-  print('\nRating forth card as "hard"');
-  cards[3].rateCard('hard');
-  cards[3].rateCard('hard');
-
-  print('Final state of cards:');
-  printStates(cards);
-
+  print('\nRating the card as "again"');
+  card.rateCard('again');
+  printDetails(card);
 }
 
-State? fromValue(int value) {
-  for (var state in State.values) {
-    if (state.val == value) {
-      return state;
-    }
-  }
-  return null;
-}
-
-void printStates(List<MemoCard> cards) {
-  print('');
-  for (var card in cards) {
-    print('--------------');
-    print(card.knowledge);
-    print(fromValue(card.state)!);
-    print(card.due!);
-  }
+// Function to print the details of the card
+void printDetails(MemoCard card) {
+  print('--------------');
+  print('Knowledge: ${card.knowledge}');
+  print('Knowledge Type: ${card.knowledgeType}');
+  print('State (as int): ${card.state}');
+  print('Due: ${card.due}');
 }
