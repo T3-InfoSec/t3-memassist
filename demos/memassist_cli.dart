@@ -5,7 +5,7 @@ import 'package:fsrs/fsrs.dart';
 
 import 'bit39.dart';
 
-import 'package:memo_assistant/memory_assistant.dart';
+import 'package:memory_assistant/memory_assistant.dart';
 
 // This is a development test class for demo purposes only.
 // It is not intended for end-user usage and can be removed when testing is complete.

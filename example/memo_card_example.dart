@@ -1,4 +1,4 @@
-import 'package:memo_assistant/memory_assistant.dart';
+import 'package:memory_assistant/memory_assistant.dart';
 
 void main() {
   // Create a MemoCard object with knowledge and type

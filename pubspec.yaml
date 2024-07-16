@@ -1,7 +1,7 @@
 name: memory_assistant
 description: Logic designed for critical memorization tasks using principles from Anki and SuperMemo.
 version: 1.0.0
-homepage: https://t3infosec.com
+homepage: https://t3infosecurity.com/
 
 environment:
   sdk: ^3.4.0
