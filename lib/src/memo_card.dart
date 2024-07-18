@@ -1,13 +1,13 @@
 import 'package:fsrs/fsrs.dart';
 
-/// A class that represents a memorization card containing [question] and [answer] 
+/// A class that represents a memorization card containing [question] node level and [answer]
 /// using the spaced repetition algorithm fsrs: https://pub.dev/packages/fsrs
 /// [ReviewLog] stores details of a card review that are essential for the spaced repetition
 /// algorithm to optimize future review schedules. It allows us to to keep a record of each review session, 
 /// which can be useful for analyzing learning progress and patterns over time.
 class MemoCard {
   final int _question;
-  final String _answer = "correct answer";
+  final String _answer = "correct answer"; // Not implemented yet see: https://github.com/T3-InfoSec/t3-memassist/issues/10
   final FSRS _algorithm = FSRS();
   Card _card = Card();
   ReviewLog? _log;
