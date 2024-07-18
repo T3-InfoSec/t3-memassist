@@ -7,22 +7,21 @@ void main() {
   group('MemoCard tests', () {
 
     test('Initialization test', () {
-    var memCard = MemoCard('Test Knowledge', 'Test Type');
-    
-    expect(memCard.knowledge, 'Test Knowledge');
-    expect(memCard.knowledgeType, 'Test Type');
-    expect(memCard.due, isNotNull);
-    expect(memCard.state, State.newState.val);
+      var memCard = MemoCard(2);
+      
+      expect(memCard.question, 2);
+      expect(memCard.correctAnswer, 'correct answer');
+      expect(memCard.due, isNotNull);
+      expect(memCard.state, State.newState.val);
     });
 
     test('Rate card test', () {
-      var memCard = MemoCard('Test Knowledge', 'Test Type');
+      var memCard = MemoCard(2);
       expect(memCard.state, State.newState.val);
 
       // First rating
       DateTime beforeFirstRate = DateTime.now().toUtc();
       memCard.rateCard('hard');
-      DateTime afterFirstRate = DateTime.now().toUtc();
       expect(memCard.state, State.newState.val);
       expect(memCard.due!.isAfter(beforeFirstRate), isTrue);
 
@@ -30,7 +29,7 @@ void main() {
       memCard.rateCard('good');
       DateTime afterSecondRate = DateTime.now().toUtc();
       expect(memCard.state, State.learning.val);
-      expect(memCard.due!.isAfter(afterFirstRate), isTrue);
+      expect(memCard.due!.isAfter(beforeFirstRate), isTrue);
 
       // Third rating
       memCard.rateCard('easy');
@@ -47,8 +46,8 @@ void main() {
     });
 
     test('ToString test', () {
-      var memCard = MemoCard('Test Knowledge', 'Test Type');
-      String expectedString = 'Memorization Card for Knowledge: Test Knowledge; with state: ${memCard.state} and due at: ${memCard.due}.';
+      var memCard = MemoCard(3);
+      String expectedString = 'Memorization Card for node: ${memCard.question}; with state: ${memCard.state} and due at: ${memCard.due}.';
       expect(memCard.toString(), expectedString);
     });
   });
