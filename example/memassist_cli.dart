@@ -1,14 +1,11 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:fsrs/fsrs.dart';
-
 import 'bit39.dart';
 
 import 'package:memory_assistant/memory_assistant.dart';
 
-// This is a development test class for demo purposes only.
-// It is not intended for end-user usage and can be removed when testing is complete.
+// CLI example of how to use the memo card library.
 void main() {
   List<MemoCard> cards = [
     MemoCard('moment weapon pact', 'Formosa'),
@@ -26,15 +23,6 @@ void main() {
 
   print('Final state of cards:');
   printStates(cards);
-}
-
-State? fromValue(int value) {
-  for (var state in State.values) {
-    if (state.val == value) {
-      return state;
-    }
-  }
-  return null;
 }
 
 void reviewCard(MemoCard card) {
@@ -90,7 +78,7 @@ void printStates(List<MemoCard> cards) {
   for (var card in cards) {
     print('--------------');
     print('Knowledge: ${card.knowledge}');
-    print('State: ${fromValue(card.state)}');
+    print('State: ${card.state}');
     print('Due date: ${card.due}');
   }
 }
