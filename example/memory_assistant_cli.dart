@@ -2,17 +2,16 @@ import 'dart:io';
 
 import 'package:memory_assistant/memory_assistant.dart';
 
-final String firstLevelOption1 = "48c52a27aed9c85e69925c4132d71dabfbb4f89500931fbdc62393f8d87a41d0";
-final String firstLevelOption2 = "e4194aaba55b31863701448601059117380743180332343aa31f28036177380a";
+final String firstLevelOption1 =
+    "48c52a27aed9c85e69925c4132d71dabfbb4f89500931fbdc62393f8d87a41d0";
+final String firstLevelOption2 =
+    "e4194aaba55b31863701448601059117380743180332343aa31f28036177380a";
 
 // CLI example of how to use the memo card.
 void main() {
 // knowledge tree with depth two and arity two.
   Map<String, dynamic> knowledgeTree = {
-    "firstLevel": [
-      firstLevelOption1,
-      firstLevelOption2
-    ],
+    "firstLevel": [firstLevelOption1, firstLevelOption2],
     "secondLevel": {
       "option1": [
         "3af2c496544250ce6e5d81718a71d7444da8354c22e1a532f1e2716796d4dfd1",
@@ -29,11 +28,7 @@ void main() {
   MemoCard level2MemoCard = MemoCard(knowledgeTree);
   MemoCard level3MemoCard = MemoCard(knowledgeTree);
 
-  List<MemoCard> memoCards = [
-    level1MemoCard,
-    level2MemoCard,
-    level3MemoCard
-  ];
+  List<MemoCard> memoCards = [level1MemoCard, level2MemoCard, level3MemoCard];
 
   print('Memorization assistant CLI example');
   print('You will be prompted to answer the cards and rate your recall.');
@@ -49,8 +44,10 @@ void main() {
 
 void reviewLevels(Map<String, dynamic> tree) {
   // First level options
-  List<String> firstLevelOptions = List<String>.from(tree["firstLevel"] as List);
-  print("\nL1: Please provide the correct option (1-${firstLevelOptions.length}):");
+  List<String> firstLevelOptions =
+      List<String>.from(tree["firstLevel"] as List);
+  print(
+      "\nL1: Please provide the correct option (1-${firstLevelOptions.length}):");
   for (var i = 0; i < firstLevelOptions.length; i++) {
     print("  ${i + 1}) ${firstLevelOptions[i]}");
   }
@@ -71,8 +68,10 @@ void reviewLevels(Map<String, dynamic> tree) {
   }
 
   // Second level options
-  List<String> secondLevelOptions = List<String>.from(tree["secondLevel"][secondLevelKey] as List);
-  print("L2: Please provide the correct option (1-${secondLevelOptions.length}):");
+  List<String> secondLevelOptions =
+      List<String>.from(tree["secondLevel"][secondLevelKey] as List);
+  print(
+      "L2: Please provide the correct option (1-${secondLevelOptions.length}):");
   for (var i = 0; i < secondLevelOptions.length; i++) {
     print("  ${i + 1}) ${secondLevelOptions[i]}");
   }
@@ -113,7 +112,8 @@ void printStates(List<MemoCard> cards) {
     print('--------------');
     print('Knowledge: ${memoCard.knowledge}');
     print('State (as int): ${memoCard.state}');
-    print("    0: \"newState\",\n    1: \"learning\",\n    2: \"review\",\n    3: \"relearning\"");
+    print(
+        "    0: \"newState\",\n    1: \"learning\",\n    2: \"review\",\n    3: \"relearning\"");
     print('Due: ${memoCard.due}');
   }
 }
