@@ -30,10 +30,11 @@ class MemoCard {
     _log = schedulingCards[rates[rating]]!.reviewLog;
   }
 
-  /// Getters
   Map<String, dynamic> get knowledge => _knowledge;
+
   /// [due] represents the date and time of the next card revision.
   DateTime? get due => _card.due;
+  
   int get state => _log?.state.val ?? State.newState.val;
 
   @override
