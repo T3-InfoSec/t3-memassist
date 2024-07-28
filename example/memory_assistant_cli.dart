@@ -35,7 +35,6 @@ void main() {
     level3MemoCard
   ];
 
-
   print('Memorization assistant CLI example');
   print('You will be prompted to answer the cards and rate your recall.');
 
