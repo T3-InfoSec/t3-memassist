@@ -1,8 +1,10 @@
 import 'package:fsrs/fsrs.dart';
 
 /// A class that represents a memorization card containing knowledge
-/// using the spaced repetition algorithm fsrs: https://pub.dev/packages/fsrs
-/// [ReviewLog] stores details of a card review that are essential for the spaced repetition
+/// 
+/// It uses the spaced repetition algorithm [FSRS]: https://pub.dev/packages/fsrs
+/// and [_card] to manage memorizarion card revision from rate.
+/// [_log] stores details of a card review that are essential for the spaced repetition
 /// algorithm to optimize future review schedules. It allows us to to keep a record of each review session,
 /// which can be useful for analyzing learning progress and patterns over time.
 class MemoCard {
@@ -11,10 +13,10 @@ class MemoCard {
   Card _card = Card();
   ReviewLog? _log;
 
-  /// Initialization of a new MemoCard with the given [_knowledge].
   MemoCard(this._knowledge);
 
   /// Rates the card knowledge and updates its state and review log.
+  /// 
   /// The [rating] parameter can take the values 'again', 'hard', 'good', and 'easy'.
   void rateCard(String rating) {
     DateTime now = DateTime.now().toUtc();

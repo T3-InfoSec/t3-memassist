@@ -1,2 +1,4 @@
-# t3-memassist
-This repository contains the logic of the memorization assistant logic implementation, thus, we can modify this implementation without affecting any dependent components, adhering to principles of modularity and single responsibility. The graphic user interface that use this module is in [t3-Vault](https://github.com/T3-InfoSec/t3-vault) repository.
+This repository employs the Spaced Repetition Scheduler algorithm to assist users in memorising cards.
+
+This contains the logic of the memorisation assistant, following the principles of modularity and single responsibility, so it can be modified without affecting any dependent components.
+The graphic user interface that uses this module is in the [t3-Vault](https://github.com/T3-InfoSec/t3-vault) repository.
