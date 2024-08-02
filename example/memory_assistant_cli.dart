@@ -34,7 +34,7 @@ void main() {
   print('You will be prompted to answer the cards and rate your recall.');
 
   for (var memoCard in memoCards) {
-    reviewLevels(memoCard.knowledge);
+    reviewLevels(memoCard.knowledge!);
     rateCard(memoCard);
   }
 

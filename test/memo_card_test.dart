@@ -5,7 +5,7 @@ import 'package:memory_assistant/memory_assistant.dart';
 
 void main() {
   group('MemoCard tests', () {
-    test('Initialization test', () {
+    test('Initialization with knowledge test', () {
       var memoCard = MemoCard({
         "test": ["knowledge"]
       });
@@ -16,6 +16,12 @@ void main() {
       expect(memoCard.state, State.newState.val);
     });
 
+    test('Initialization without knowledge test', () {
+      var memoCard = MemoCard(); // Sin knowledge
+      expect(memoCard.knowledge, isNull);
+      expect(memoCard.due, isNotNull);
+      expect(memoCard.state, State.newState.val);
+    });
     test('Rate card test', () {
       var memoCard = MemoCard({
         "test": ["knowledge"]

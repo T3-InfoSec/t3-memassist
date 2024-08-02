@@ -3,17 +3,19 @@ import 'package:fsrs/fsrs.dart';
 /// A class that represents a memorization card containing knowledge
 /// 
 /// It uses the spaced repetition algorithm [FSRS]: https://pub.dev/packages/fsrs
-/// and [_card] to manage memorizarion card revision from rate.
+/// and [_card] to manage memorization card revision from rate.
 /// [_log] stores details of a card review that are essential for the spaced repetition
 /// algorithm to optimize future review schedules. It allows us to to keep a record of each review session,
 /// which can be useful for analyzing learning progress and patterns over time.
 class MemoCard {
-  final Map<String, dynamic> _knowledge;
+  final Map<String, dynamic>? _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
   ReviewLog? _log;
 
-  MemoCard(this._knowledge);
+  /// Constructor that initializes a MemoCard with optional [knowledge].
+  /// If no knowledge is provided, [_knowledge] will be null.
+  MemoCard([this._knowledge]);
 
   /// Rates the card knowledge and updates its state and review log.
   /// 
@@ -32,7 +34,9 @@ class MemoCard {
     _log = schedulingCards[rates[rating]]!.reviewLog;
   }
 
-  Map<String, dynamic> get knowledge => _knowledge;
+  /// Getter for [_knowledge].
+  /// Returns the knowledge or an empty map if _knowledge is null.
+  Map<String, dynamic>? get knowledge => _knowledge;
 
   /// [due] represents the date and time of the next card revision.
   DateTime? get due => _card.due;
@@ -41,6 +45,6 @@ class MemoCard {
 
   @override
   String toString() {
-    return 'Memorization Card for Knowledge: $_knowledge; with state: $state and due at: $due.';
+    return 'Memorization Card for Knowledge: ${_knowledge ?? 'No Knowledge'}; with state: $state and due at: $due.';
   }
 }
