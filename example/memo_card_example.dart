@@ -37,9 +37,9 @@ void main() {
     }
   };
 
-  MemoCard level1MemoCard = MemoCard(knowledgeTree);
-  MemoCard level2MemoCard = MemoCard(knowledgeTree);
-  MemoCard level3MemoCard = MemoCard(knowledgeTree);
+  MemoCard level1MemoCard = MemoCard(knowledge: knowledgeTree);
+  MemoCard level2MemoCard = MemoCard(knowledge: knowledgeTree);
+  MemoCard level3MemoCard = MemoCard(knowledge: knowledgeTree);
 
   print('Initial state of the level 1 memo card:');
   printDetails(level1MemoCard);
@@ -72,6 +72,8 @@ void printDetails(MemoCard memoCard) {
   print('Knowledge: ${memoCard.knowledge}');
   print('State (as int): ${memoCard.state}');
   print(
-      "    0: \"newState\",\n    1: \"learning\",\n    2: \"review\",\n    3: \"relearning\"");
+    '    0: "newState",\n    1: "learning",\n'
+    '    2: "review",\n    3: "relearning"',
+  );
   print('Due: ${memoCard.due}');
 }

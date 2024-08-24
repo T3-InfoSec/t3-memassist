@@ -8,14 +8,14 @@ import 'package:fsrs/fsrs.dart';
 /// schedules. It allows to to keep a record of each review session, which can
 /// be useful for analyzing learning progress and patterns over time.
 class MemoCard {
-  final Map<String, dynamic>? _knowledge;
+  final Map<String, dynamic> _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
   ReviewLog? _log;
 
   /// Constructor that initializes a MemoCard with optional [knowledge].
   /// If no knowledge is provided, the default value is null.
-  MemoCard([this._knowledge]);
+  MemoCard({required knowledge}) : _knowledge = knowledge;
 
   /// Rates the card knowledge and updates its state and review log.
   ///
@@ -35,8 +35,8 @@ class MemoCard {
     _log = schedulingCards[rates[rating]]!.reviewLog;
   }
 
-  /// Returns the knowledge or an empty map if there is no knowledge.
-  Map<String, dynamic>? get knowledge => _knowledge;
+  /// Returns the knowledge maintained by [MemoCard].
+  Map<String, dynamic> get knowledge => _knowledge;
 
   /// [due] represents the date and time of the next card revision.
   DateTime? get due => _card.due;
@@ -45,7 +45,7 @@ class MemoCard {
 
   @override
   String toString() {
-    return 'Memorization Card for Knowledge: ${_knowledge ?? 'No Knowledge'};'
+    return 'Memorization Card for Knowledge: $_knowledge;'
         ' with state: $state and due at: $due.';
   }
 }
