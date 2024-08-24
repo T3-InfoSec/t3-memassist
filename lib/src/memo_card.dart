@@ -10,7 +10,7 @@ import 'memo_card_state.dart';
 /// schedules. It allows to to keep a record of each review session, which can
 /// be useful for analyzing learning progress and patterns over time.
 class MemoCard {
-  final Map<String, dynamic> _knowledge;
+  final dynamic _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
 
