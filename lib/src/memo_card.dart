@@ -46,6 +46,7 @@ class MemoCard {
 
   @override
   String toString() {
-    return 'Memorization Card for Knowledge: ${_knowledge ?? 'No Knowledge'}; with state: $state and due at: $due.';
+    return 'Memorization Card for Knowledge: ${_knowledge ?? 'No Knowledge'};'
+        ' with state: $state and due at: $due.';
   }
 }
