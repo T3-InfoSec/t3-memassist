@@ -1,7 +1,5 @@
-import 'package:test/test.dart';
-import 'package:fsrs/fsrs.dart';
-
 import 'package:memory_assistant/memory_assistant.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('MemoCard tests', () {
@@ -15,7 +13,7 @@ void main() {
         "test": ["knowledge"]
       });
       expect(memoCard.due, isNotNull);
-      expect(memoCard.state, 'New');
+      expect(memoCard.state, CardState.newCard);
     });
 
     test('Rate card test', () {
@@ -24,33 +22,33 @@ void main() {
           "test": ["knowledge"]
         },
       );
-      expect(memoCard.state, 'New');
+      expect(memoCard.state, CardState.newCard);
 
       // First rating
       DateTime beforeFirstRate = DateTime.now().toUtc();
       memoCard.rateCard('hard');
       DateTime afterFirstRate = DateTime.now().toUtc();
-      expect(memoCard.state, 'Learning');
-      expect(memoCard.due!.isAfter(beforeFirstRate), isTrue);
+      expect(memoCard.state, CardState.learning);
+      expect(memoCard.due.isAfter(beforeFirstRate), isTrue);
 
       // Second rating
       memoCard.rateCard('good');
       DateTime afterSecondRate = DateTime.now().toUtc();
-      expect(memoCard.state, 'Learning');
-      expect(memoCard.due!.isAfter(afterFirstRate), isTrue);
+      expect(memoCard.state, CardState.review);
+      expect(memoCard.due.isAfter(afterFirstRate), isTrue);
 
       // Third rating
       memoCard.rateCard('easy');
       DateTime afterThirdRate = DateTime.now().toUtc();
-      expect(memoCard.state, 'Learning');
-      expect(memoCard.due!.isAfter(afterSecondRate), isTrue);
+      expect(memoCard.state, CardState.review);
+      expect(memoCard.due.isAfter(afterSecondRate), isTrue);
 
       // Fourth and fifth rating to trigger relearning
       memoCard.rateCard('again');
-      expect(memoCard.state, 'Review');
+      expect(memoCard.state, CardState.relearning);
       memoCard.rateCard('again');
-      expect(memoCard.state, 'Relearning');
-      expect(memoCard.due!.isAfter(afterThirdRate), isTrue);
+      expect(memoCard.state, CardState.relearning);
+      expect(memoCard.due.isAfter(afterThirdRate), isTrue);
     });
 
     test('ToString test', () {

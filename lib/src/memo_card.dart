@@ -1,5 +1,7 @@
 import 'package:fsrs/fsrs.dart';
 
+import 'utils.dart';
+
 /// A class that represents a memorization card containing knowledge.
 ///
 /// It uses the spaced repetition algorithm [FSRS ref](https://pub.dev/packages/fsrs)
@@ -11,11 +13,35 @@ class MemoCard {
   final Map<String, dynamic> _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
-  ReviewLog? _log;
 
   /// Constructor that initializes a MemoCard with optional [knowledge].
   /// If no knowledge is provided, the default value is null.
   MemoCard({required knowledge}) : _knowledge = knowledge;
+
+  /// Returns the date and time for next revision of [MemoCard].
+  DateTime get due => _card.due;
+
+  /// Returns the knowledge maintained by [MemoCard].
+  Map<String, dynamic> get knowledge => _knowledge;
+
+  /// Returns the learning state of [MemoCard].
+  ///
+  /// The [newCard] state means the card has never been studied, [learning]
+  /// means the card has been studied for the first time recently, [review]
+  /// means the card has been graduated from learning state, [relearning]
+  /// means the card has been forgotten in review state.
+  CardState get state {
+    switch (_card.state) {
+      case State.newState:
+        return CardState.newCard;
+      case State.learning:
+        return CardState.learning;
+      case State.review:
+        return CardState.review;
+      case State.relearning:
+        return CardState.relearning;
+    }
+  }
 
   /// Rates the card knowledge and updates its state and review log.
   ///
@@ -32,27 +58,6 @@ class MemoCard {
 
     var schedulingCards = _algorithm.repeat(_card, now);
     _card = schedulingCards[rates[rating]]!.card;
-    _log = schedulingCards[rates[rating]]!.reviewLog;
-  }
-
-  /// Returns the knowledge maintained by [MemoCard].
-  Map<String, dynamic> get knowledge => _knowledge;
-
-  /// Returns the date and time for next revision of [MemoCard].
-  DateTime get due => _card.due;
-
-  String get state {
-    switch (_log?.state.val) {
-      case 1:
-        return 'Learning';
-      case 2:
-        return 'Review';
-      case 3:
-        return 'Relearning';
-      case 0:
-      default:
-        return 'New';
-    }
   }
 
   @override
