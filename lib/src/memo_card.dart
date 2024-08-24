@@ -1,6 +1,6 @@
 import 'package:fsrs/fsrs.dart';
 
-import 'utils.dart';
+import 'memo_card_state.dart';
 
 /// A class that represents a memorization card containing knowledge.
 ///

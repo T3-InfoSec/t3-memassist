@@ -6,4 +6,4 @@
 library;
 
 export 'src/memo_card.dart';
-export 'src/utils.dart';
+export 'src/memo_card_state.dart';
