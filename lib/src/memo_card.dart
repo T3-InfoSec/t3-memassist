@@ -2,7 +2,7 @@ import 'package:fsrs/fsrs.dart';
 
 import 'memo_card_state.dart';
 
-/// A class that represents a memorization card containing knowledge.
+/// A memorization card that can contain and manage knowledge.
 ///
 /// It uses the spaced repetition algorithm [FSRS ref](https://pub.dev/packages/fsrs)
 /// to manage memorization card. It stores details of a card review that are
@@ -18,10 +18,10 @@ class MemoCard {
   /// If no knowledge is provided, the default value is null.
   MemoCard({required knowledge}) : _knowledge = knowledge;
 
-  /// Returns the date and time for next revision of [MemoCard].
+  /// The date and time for next revision time of [MemoCard].
   DateTime get due => _card.due;
 
-  /// Returns the knowledge maintained by [MemoCard].
+  /// The knowledge that is maintained by [MemoCard].
   Map<String, dynamic> get knowledge => _knowledge;
 
   /// Returns the learning state of [MemoCard].

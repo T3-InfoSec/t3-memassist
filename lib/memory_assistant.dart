@@ -1,7 +1,7 @@
 // TODO: Complete the copyright.
 // Copyright (c) 2024, ...
 
-/// This repository employs the Spaced Repetition Scheduler algorithm
+/// A library that employs the Spaced Repetition Scheduler (FSRS) algorithm
 /// to assist users in memorizing knowledge.
 library;
 
