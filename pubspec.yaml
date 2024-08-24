@@ -1,7 +1,8 @@
-name: memory_assistant
-description: Logic designed for critical memorization tasks using principles from Anki and SuperMemo.
+name: t3_memoassist
+description: A memorization assistant package that manage and report knowledge status using the spaced repetition algorithm.
 version: 0.1.0-dev
 homepage: https://t3infosecurity.com/
+publish_to: none
 
 environment:
   sdk: ^3.4.0
