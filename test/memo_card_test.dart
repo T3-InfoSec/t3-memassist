@@ -6,9 +6,11 @@ import 'package:memory_assistant/memory_assistant.dart';
 void main() {
   group('MemoCard tests', () {
     test('Initialization with knowledge test', () {
-      var memoCard = MemoCard({
-        "test": ["knowledge"]
-      });
+      var memoCard = MemoCard(
+        knowledge: {
+          "test": ["knowledge"]
+        },
+      );
       expect(memoCard.knowledge, {
         "test": ["knowledge"]
       });
@@ -16,16 +18,12 @@ void main() {
       expect(memoCard.state, State.newState.val);
     });
 
-    test('Initialization without knowledge test', () {
-      var memoCard = MemoCard(); // Sin knowledge
-      expect(memoCard.knowledge, isNull);
-      expect(memoCard.due, isNotNull);
-      expect(memoCard.state, State.newState.val);
-    });
     test('Rate card test', () {
-      var memoCard = MemoCard({
-        "test": ["knowledge"]
-      });
+      var memoCard = MemoCard(
+        knowledge: {
+          "test": ["knowledge"]
+        },
+      );
       expect(memoCard.state, State.newState.val);
 
       // First rating
@@ -56,11 +54,14 @@ void main() {
     });
 
     test('ToString test', () {
-      var memoCard = MemoCard({
-        "test": ["knowledge"]
-      });
+      var memoCard = MemoCard(
+        knowledge: {
+          "test": ["knowledge"]
+        },
+      );
       String expectedString =
-          'Memorization Card for Knowledge: ${memoCard.knowledge}; with state: ${memoCard.state} and due at: ${memoCard.due}.';
+          'Memorization Card for Knowledge: ${memoCard.knowledge};'
+          ' with state: ${memoCard.state} and due at: ${memoCard.due}.';
       expect(memoCard.toString(), expectedString);
     });
   });
