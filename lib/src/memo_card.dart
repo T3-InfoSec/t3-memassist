@@ -38,10 +38,21 @@ class MemoCard {
   /// Returns the knowledge maintained by [MemoCard].
   Map<String, dynamic> get knowledge => _knowledge;
 
-  /// [due] represents the date and time of the next card revision.
-  DateTime? get due => _card.due;
+  /// Returns the date and time for next revision of [MemoCard].
+  DateTime get due => _card.due;
 
-  int get state => _log?.state.val ?? State.newState.val;
+  String get state {
+    switch (_log?.state.val) {
+      case 1:
+        return 'learning';
+      case 2:
+        return 'review';
+      case 3:
+        return 'relearning';
+      case 0:
+      default:
+        return 'new';
+  }
 
   @override
   String toString() {
