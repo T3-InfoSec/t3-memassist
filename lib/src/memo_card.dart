@@ -22,7 +22,7 @@ class MemoCard {
   DateTime get due => _card.due;
 
   /// The knowledge that is maintained by [MemoCard].
-  Map<String, dynamic> get knowledge => _knowledge;
+  dynamic get knowledge => _knowledge;
 
   /// Returns the learning state of [MemoCard].
   ///
