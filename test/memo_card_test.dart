@@ -1,4 +1,4 @@
-import 'package:memory_assistant/memory_assistant.dart';
+import 'package:t3_memassist/memory_assistant.dart';
 import 'package:test/test.dart';
 
 void main() {
