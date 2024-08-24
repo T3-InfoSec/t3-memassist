@@ -15,7 +15,7 @@ void main() {
         "test": ["knowledge"]
       });
       expect(memoCard.due, isNotNull);
-      expect(memoCard.state, State.newState.val);
+      expect(memoCard.state, 'New');
     });
 
     test('Rate card test', () {
@@ -24,32 +24,32 @@ void main() {
           "test": ["knowledge"]
         },
       );
-      expect(memoCard.state, State.newState.val);
+      expect(memoCard.state, 'New');
 
       // First rating
       DateTime beforeFirstRate = DateTime.now().toUtc();
       memoCard.rateCard('hard');
       DateTime afterFirstRate = DateTime.now().toUtc();
-      expect(memoCard.state, State.newState.val);
+      expect(memoCard.state, 'Learning');
       expect(memoCard.due!.isAfter(beforeFirstRate), isTrue);
 
       // Second rating
       memoCard.rateCard('good');
       DateTime afterSecondRate = DateTime.now().toUtc();
-      expect(memoCard.state, State.learning.val);
+      expect(memoCard.state, 'Learning');
       expect(memoCard.due!.isAfter(afterFirstRate), isTrue);
 
       // Third rating
       memoCard.rateCard('easy');
       DateTime afterThirdRate = DateTime.now().toUtc();
-      expect(memoCard.state, State.review.val);
+      expect(memoCard.state, 'Learning');
       expect(memoCard.due!.isAfter(afterSecondRate), isTrue);
 
       // Fourth and fifth rating to trigger relearning
       memoCard.rateCard('again');
-      expect(memoCard.state, State.review.val);
+      expect(memoCard.state, 'Review');
       memoCard.rateCard('again');
-      expect(memoCard.state, State.relearning.val);
+      expect(memoCard.state, 'Relearning');
       expect(memoCard.due!.isAfter(afterThirdRate), isTrue);
     });
 

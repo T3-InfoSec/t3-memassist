@@ -111,11 +111,7 @@ void printStates(List<MemoCard> cards) {
   for (var memoCard in cards) {
     print('--------------');
     print('Knowledge: ${memoCard.knowledge}');
-    print('State (as int): ${memoCard.state}');
-    print(
-      '    0: "newState",\n    1: "learning",\n'
-      '    2: "review",\n    3: "relearning"',
-    );
+    print('State: ${memoCard.state}');
     print('Due: ${memoCard.due}');
   }
 }

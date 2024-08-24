@@ -44,14 +44,15 @@ class MemoCard {
   String get state {
     switch (_log?.state.val) {
       case 1:
-        return 'learning';
+        return 'Learning';
       case 2:
-        return 'review';
+        return 'Review';
       case 3:
-        return 'relearning';
+        return 'Relearning';
       case 0:
       default:
-        return 'new';
+        return 'New';
+    }
   }
 
   @override
