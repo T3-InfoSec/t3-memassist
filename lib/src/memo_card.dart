@@ -14,9 +14,34 @@ class MemoCard {
   final FSRS _algorithm = FSRS();
   Card _card = Card();
 
-  /// Constructor that initializes a MemoCard with optional [knowledge].
-  /// If no knowledge is provided, the default value is null.
-  MemoCard({required knowledge}) : _knowledge = knowledge;
+  /// Constructor that initializes a MemoCard with [knowledge].
+  /// And optionally with card details.
+  /// 
+  /// If these fields are not provided, the default values of [Card] will be used.
+  MemoCard({
+    required dynamic knowledge,
+    DateTime? due,
+    DateTime? lastReview,
+    double stability = 0,
+    double difficulty = 0,
+    int elapsedDays = 0,
+    int scheduledDays = 0,
+    int reps = 0,
+    int lapses = 0,
+    int stateIndex = 0, // new State
+  })  : _knowledge = knowledge {
+    _card = Card.def(
+      due ?? DateTime.now().toUtc(),
+      lastReview ?? DateTime.now().toUtc(),
+      stability,
+      difficulty,
+      elapsedDays,
+      scheduledDays,
+      reps,
+      lapses,
+      State.values[stateIndex],
+    );
+  }
 
   /// The date and time for next revision time of [MemoCard].
   DateTime get due => _card.due;
@@ -58,6 +83,14 @@ class MemoCard {
 
     var schedulingCards = _algorithm.repeat(_card, now);
     _card = schedulingCards[rates[rating]]!.card;
+  }
+
+  Card get card {
+    return _card;
+  }
+
+  set card(Card card) {
+    _card = card;
   }
 
   @override
