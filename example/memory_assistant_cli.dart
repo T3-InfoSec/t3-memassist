@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:memory_assistant/memory_assistant.dart';
+import 'package:t3_memassist/memory_assistant.dart';
 
 final String firstLevelOption1 =
     "48c52a27aed9c85e69925c4132d71dabfbb4f89500931fbdc62393f8d87a41d0";

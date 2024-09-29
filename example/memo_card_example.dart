@@ -1,4 +1,4 @@
-import 'package:memory_assistant/memory_assistant.dart';
+import 'package:t3_memassist/memory_assistant.dart';
 
 void main() {
   // knowledge tree with depth three and arity two.
