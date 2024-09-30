@@ -24,7 +24,7 @@ void main() {
       ],
       'option2': [
         'b12f389f59d9aeebe792e69c274386be7b627f689a96e804f10b22d98caa2ef1',
-        'aaa0776f6eaa9fae4e77b136fe2b6ed4de3e7a3dcee0f26fd1c737c390a72693'
+        'aaa0776f6eaa9fae4e77b136fe2b6ed4de3e7a3dcee0f26fd1c737c390a72693',
       ],
       'option3': [
         '4rt6c496544250ce6e5d81718a71d7444da8354c22e1a532f1e2716796d4dfd1',
