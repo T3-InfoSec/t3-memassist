@@ -12,7 +12,7 @@ void main() {
         '3af2c496544250ce6e5d81718a71d7444da8354c22e1a532f1e2716796d4dfd1',
         '6cb26a11ea79cb18e9a468f9950050fefc9d3303d918dbcef1f9cb1180024c70',
       ],
-      "option2": [
+      'option2': [
         'a37f389f59d9aeebe792e69c274386be7b627f689a96e804f10b22d98caa2ef1',
         '5c10776f6eaa9fae4e77b136fe2b6ed4de3e7a3dcee0f26fd1c737c390a72693',
       ],
@@ -28,11 +28,11 @@ void main() {
       ],
       'option3': [
         '4rt6c496544250ce6e5d81718a71d7444da8354c22e1a532f1e2716796d4dfd1',
-        '09ok8a11ea79cb18e9a468f9950050fefc9d3303d918dbcef1f9cb1180024c70
+        '09ok8a11ea79cb18e9a468f9950050fefc9d3303d918dbcef1f9cb1180024c70',
       ],
       'option4': [
         '12e3r89f59d9aeebe792e69c274386be7b627f689a96e804f10b22d98caa2ef1',
-        '4adf776f6eaa9fae4e77b136fe2b6ed4de3e7a3dcee0f26fd1c737c390a72693'
+        '4adf776f6eaa9fae4e77b136fe2b6ed4de3e7a3dcee0f26fd1c737c390a72693',
       ],
     }
   };
