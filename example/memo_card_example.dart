@@ -6,8 +6,8 @@ void main() {
   final hashviz =
       Hashviz(hashToVisualize: 'example_to_hash', visualizationSize: 16);
 
-  // Generate the image data
-  final imageData = hashviz.visualizationBlocks;
+  // Generate and retrieve the image data
+  final knowledgeToMemorize = hashviz.visualizationBlocks;
 
   // Create an instance of MemoCard
   MemoCard memoCard = MemoCard(knowledge: knowledgeToMemorize);
