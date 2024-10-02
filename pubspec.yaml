@@ -1,0 +1,15 @@
+name: t3_memassist
+description: A memorization assistant package that manage and report knowledge status using the spaced repetition algorithm.
+version: 0.1.0-dev
+homepage: https://t3infosecurity.com/
+publish_to: none
+
+environment:
+  sdk: ^3.4.0
+
+dependencies:
+  fsrs: ^1.1.1
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
