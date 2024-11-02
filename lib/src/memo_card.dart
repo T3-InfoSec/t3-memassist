@@ -17,7 +17,7 @@ class MemoCard {
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
-  /// 
+  ///
   /// If these fields are not provided, the default values of [Card] will be used.
   MemoCard({
     required dynamic knowledge,
@@ -52,7 +52,7 @@ class MemoCard {
   /// The knowledge that is maintained by [MemoCard].
   dynamic get knowledge => _knowledge;
 
-  /// The id of the deck the [MemoCard] belongs to 
+  /// The id of the deck the [MemoCard] belongs to
   String get deck => _deck; // Getter para el atributo deck
 
   /// Returns the learning state of [MemoCard].
@@ -104,4 +104,8 @@ class MemoCard {
     return 'Memorization Card for Knowledge: $_knowledge;'
         ' with state: $state and due at: $due.';
   }
+
+  bool isTacitKnowledgeCard() =>
+      knowledge.containsKey('tacitKnowledge') &&
+      knowledge['tacitKnowledge'] != null;
 }
