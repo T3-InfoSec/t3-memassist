@@ -13,13 +13,15 @@ class MemoCard {
   final dynamic _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
+  final String _deck;
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
-  /// 
+  ///
   /// If these fields are not provided, the default values of [Card] will be used.
   MemoCard({
     required dynamic knowledge,
+    required String deck,
     DateTime? due,
     DateTime? lastReview,
     double stability = 0,
@@ -29,7 +31,8 @@ class MemoCard {
     int reps = 0,
     int lapses = 0,
     int stateIndex = 0, // new State
-  })  : _knowledge = knowledge {
+  })  : _knowledge = knowledge,
+        _deck = deck {
     _card = Card.def(
       due ?? DateTime.now().toUtc(),
       lastReview ?? DateTime.now().toUtc(),
@@ -48,6 +51,9 @@ class MemoCard {
 
   /// The knowledge that is maintained by [MemoCard].
   dynamic get knowledge => _knowledge;
+
+  /// The id of the deck the [MemoCard] belongs to
+  String get deck => _deck; // Getter para el atributo deck
 
   /// Returns the learning state of [MemoCard].
   ///
@@ -98,4 +104,8 @@ class MemoCard {
     return 'Memorization Card for Knowledge: $_knowledge;'
         ' with state: $state and due at: $due.';
   }
+
+  bool isTacitKnowledgeCard() =>
+      knowledge.containsKey('tacitKnowledge') &&
+      knowledge['tacitKnowledge'] != null;
 }

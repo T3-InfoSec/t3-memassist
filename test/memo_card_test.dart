@@ -8,6 +8,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
+        deck: "test_deck",
       );
       expect(memoCard.knowledge, {
         "test": ["knowledge"]
@@ -21,6 +22,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
+        deck: "test_deck",
       );
       expect(memoCard.state, CardState.newCard);
 
@@ -56,6 +58,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
+        deck: "test_deck",
       );
       String expectedString =
           'Memorization Card for Knowledge: ${memoCard.knowledge};'

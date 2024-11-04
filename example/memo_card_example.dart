@@ -1,16 +1,10 @@
-import 'package:t3_hashviz/hashviz.dart';
 import 'package:t3_memassist/memory_assistant.dart';
 
 void main() {
-  // Create an instance of Hashviz
-  final hashviz =
-      Hashviz(hashToVisualize: 'example_to_hash', visualizationSize: 16);
-
-  // Generate and retrieve the image data
-  final knowledgeToMemorize = hashviz.visualizationBlocks;
+  final knowledgeToMemorize = {"test": ["value1", "value2"]};
 
   // Create an instance of MemoCard
-  MemoCard memoCard = MemoCard(knowledge: knowledgeToMemorize);
+  MemoCard memoCard = MemoCard(knowledge: knowledgeToMemorize, deck: "test deck");
 
   print('Initial state of the memo card:');
   printDetails(memoCard);
