@@ -104,8 +104,4 @@ class MemoCard {
     return 'Memorization Card for Knowledge: $_knowledge;'
         ' with state: $state and due at: $due.';
   }
-
-  bool isTacitKnowledgeCard() =>
-      knowledge.containsKey('tacitKnowledge') &&
-      knowledge['tacitKnowledge'] != null;
 }
