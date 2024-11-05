@@ -17,5 +17,6 @@ class EkaMemoCard extends MemoCard {
           knowledge: {
             'eka': eka,
           },
+          title: 'Ephemeral Recovery Key Card',
         );
 }
