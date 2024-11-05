@@ -53,7 +53,7 @@ class MemoCard {
   dynamic get knowledge => _knowledge;
 
   /// The id of the deck the [MemoCard] belongs to
-  String get deck => _deck; // Getter para el atributo deck
+  String get deck => _deck;
 
   /// Returns the learning state of [MemoCard].
   ///
