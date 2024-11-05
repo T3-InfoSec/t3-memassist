@@ -1,4 +1,5 @@
 import 'package:fsrs/fsrs.dart';
+import 'package:t3_memassist/src/deck.dart';
 
 import 'memo_card_state.dart';
 
@@ -13,7 +14,7 @@ class MemoCard {
   final dynamic _knowledge;
   final FSRS _algorithm = FSRS();
   Card _card = Card();
-  final String _deck;
+  final Deck _deck;
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
@@ -21,7 +22,7 @@ class MemoCard {
   /// If these fields are not provided, the default values of [Card] will be used.
   MemoCard({
     required dynamic knowledge,
-    required String deck,
+    required Deck deck,
     DateTime? due,
     DateTime? lastReview,
     double stability = 0,
@@ -52,8 +53,8 @@ class MemoCard {
   /// The knowledge that is maintained by [MemoCard].
   dynamic get knowledge => _knowledge;
 
-  /// The id of the deck the [MemoCard] belongs to
-  String get deck => _deck;
+  /// The deck the [MemoCard] belongs to
+  Deck get deck => _deck;
 
   /// Returns the learning state of [MemoCard].
   ///

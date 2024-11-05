@@ -10,3 +10,4 @@ export 'src/memo_card_state.dart';
 export 'src/pa0_memo_card.dart';
 export 'src/tacit_knowledge_memo_card.dart';
 export 'src/eka_memo_card.dart';
+export 'src/deck.dart';
