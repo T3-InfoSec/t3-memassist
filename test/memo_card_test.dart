@@ -1,4 +1,5 @@
 import 'package:t3_memassist/memory_assistant.dart';
+import 'package:t3_memassist/src/deck.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,7 +9,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
-        deck: "test_deck",
+        deck: Deck("id", "name"),
       );
       expect(memoCard.knowledge, {
         "test": ["knowledge"]
@@ -22,7 +23,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
-        deck: "test_deck",
+        deck: Deck("id", "name"),
       );
       expect(memoCard.state, CardState.newCard);
 
@@ -58,7 +59,7 @@ void main() {
         knowledge: {
           "test": ["knowledge"]
         },
-        deck: "test_deck",
+        deck: Deck("id", "name"),
       );
       String expectedString =
           'Memorization Card for Knowledge: ${memoCard.knowledge};'

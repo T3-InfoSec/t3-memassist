@@ -4,6 +4,7 @@ class TacitKnowledgeMemoCard extends MemoCard {
   TacitKnowledgeMemoCard({
     required super.knowledge,
     required super.deck,
+    super.title,
     super.due,
     super.lastReview,
     super.stability,

@@ -1,10 +1,13 @@
 import 'package:t3_memassist/memory_assistant.dart';
+import 'package:t3_memassist/src/deck.dart';
 
 void main() {
   final knowledgeToMemorize = {"test": ["value1", "value2"]};
 
   // Create an instance of MemoCard
-  MemoCard memoCard = MemoCard(knowledge: knowledgeToMemorize, deck: "test deck");
+  MemoCard memoCard = MemoCard(
+    knowledge: knowledgeToMemorize, 
+    deck: Deck("id", "name"));
 
   print('Initial state of the memo card:');
   printDetails(memoCard);

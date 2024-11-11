@@ -17,6 +17,7 @@ class Pa0MemoCard extends MemoCard {
           knowledge: {
             'pa0': pa0,
           },
+          title: 'Input Password Card',
         );
 
   String get pa0 => knowledge['pa0'] as String;
