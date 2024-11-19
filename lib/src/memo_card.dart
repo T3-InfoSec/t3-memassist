@@ -38,8 +38,7 @@ class MemoCard {
         _deck = deck,
         _title = title,
         _card = Card.def(
-          // Inicialización directa
-          due ?? DateTime.now().toUtc(),
+          due ?? DateTime.now().add(Duration(minutes: 1)).toUtc(),
           lastReview ?? DateTime.now().toUtc(),
           stability,
           difficulty,
