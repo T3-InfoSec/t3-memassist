@@ -116,4 +116,14 @@ class MemoCard {
   String toString() {
     return 'Memorization Card for Knowledge: $_knowledge, with id: $id, with state: $state and due at: $due.';
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MemoCard &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
 }
