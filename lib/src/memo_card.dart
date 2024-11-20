@@ -36,10 +36,11 @@ class MemoCard {
     int lapses = 0,
     int stateIndex = 0, // new State
     String title = 'Empty title',
+    String? id ,
   })  : _knowledge = knowledge,
         _deck = deck,
         _title = title,
-        _id = Uuid().v4(),
+        _id = id ?? Uuid().v4(),
         _card = Card.def(
           due ?? DateTime.now().add(Duration(minutes: 1)).toUtc(),
           lastReview ?? DateTime.now().toUtc(),
@@ -74,10 +75,6 @@ class MemoCard {
 
   /// The id to identify the [MemoCard]
   String get id => _id;
-
-  set id(String id) {
-    _id = id;
-  }
 
   /// Returns the learning state of [MemoCard].
   ///
@@ -117,7 +114,6 @@ class MemoCard {
 
   @override
   String toString() {
-    return 'Memorization Card for Knowledge: $_knowledge;'
-        ' with state: $state and due at: $due.';
+    return 'Memorization Card for Knowledge: $_knowledge, with id: $id, with state: $state and due at: $due.';
   }
 }
