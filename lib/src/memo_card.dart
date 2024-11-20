@@ -1,5 +1,6 @@
 import 'package:fsrs/fsrs.dart';
 import 'package:t3_memassist/src/deck.dart';
+import 'package:uuid/uuid.dart';
 
 import 'memo_card_state.dart';
 
@@ -35,11 +36,10 @@ class MemoCard {
     int lapses = 0,
     int stateIndex = 0, // new State
     String title = 'Empty title',
-    String id = '',
   })  : _knowledge = knowledge,
         _deck = deck,
         _title = title,
-        _id = id,
+        _id = Uuid().v4(),
         _card = Card.def(
           due ?? DateTime.now().add(Duration(minutes: 1)).toUtc(),
           lastReview ?? DateTime.now().toUtc(),

@@ -13,7 +13,6 @@ class Pa0MemoCard extends MemoCard {
     super.reps,
     super.lapses,
     super.stateIndex,
-    super.id,
   }) : super(
           knowledge: {
             'pa0': pa0,
