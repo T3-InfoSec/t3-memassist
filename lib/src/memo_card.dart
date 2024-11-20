@@ -16,7 +16,7 @@ class MemoCard {
   Card _card = Card();
   final String _title;
   final Deck _deck;
-  final String _id;
+  String _id;
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
@@ -64,8 +64,20 @@ class MemoCard {
   /// The deck the [MemoCard] belongs to
   Deck get deck => _deck;
 
+  Card get card {
+    return _card;
+  }
+
+  set card(Card card) {
+    _card = card;
+  }
+
   /// The id to identify the [MemoCard]
   String get id => _id;
+
+  set id(String id) {
+    _id = id;
+  }
 
   /// Returns the learning state of [MemoCard].
   ///
@@ -101,14 +113,6 @@ class MemoCard {
 
     var schedulingCards = _algorithm.repeat(_card, now);
     _card = schedulingCards[rates[rating]]!.card;
-  }
-
-  Card get card {
-    return _card;
-  }
-
-  set card(Card card) {
-    _card = card;
   }
 
   @override
