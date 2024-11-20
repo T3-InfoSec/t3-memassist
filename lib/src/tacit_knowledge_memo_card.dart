@@ -14,5 +14,6 @@ class TacitKnowledgeMemoCard extends MemoCard {
     super.reps,
     super.lapses,
     super.stateIndex,
+    super.id,
   });
 }

@@ -16,6 +16,7 @@ class MemoCard {
   Card _card = Card();
   final String _title;
   final Deck _deck;
+  final String _id;
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
@@ -34,9 +35,11 @@ class MemoCard {
     int lapses = 0,
     int stateIndex = 0, // new State
     String title = 'Empty title',
+    String id = '',
   })  : _knowledge = knowledge,
         _deck = deck,
         _title = title,
+        _id = id,
         _card = Card.def(
           due ?? DateTime.now().add(Duration(minutes: 1)).toUtc(),
           lastReview ?? DateTime.now().toUtc(),
@@ -60,6 +63,9 @@ class MemoCard {
 
   /// The deck the [MemoCard] belongs to
   Deck get deck => _deck;
+
+  /// The id to identify the [MemoCard]
+  String get id => _id;
 
   /// Returns the learning state of [MemoCard].
   ///
