@@ -1,5 +1,4 @@
 import 'package:t3_memassist/memory_assistant.dart';
-import 'package:t3_memassist/src/deck.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -62,8 +61,7 @@ void main() {
         deck: Deck("id", "name"),
       );
       String expectedString =
-          'Memorization Card for Knowledge: ${memoCard.knowledge};'
-          ' with state: ${memoCard.state} and due at: ${memoCard.due}.';
+          'Memorization Card for Knowledge: ${memoCard.knowledge}, with id: ${memoCard.id}, with state: ${memoCard.state} and due at: ${memoCard.due}.';
       expect(memoCard.toString(), expectedString);
     });
   });

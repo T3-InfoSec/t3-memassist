@@ -1,5 +1,6 @@
 import 'package:fsrs/fsrs.dart';
 import 'package:t3_memassist/src/deck.dart';
+import 'package:uuid/uuid.dart';
 
 import 'memo_card_state.dart';
 
@@ -16,6 +17,7 @@ class MemoCard {
   Card _card = Card();
   final String _title;
   final Deck _deck;
+  String _id;
 
   /// Constructor that initializes a MemoCard with [knowledge].
   /// And optionally with card details.
@@ -34,12 +36,13 @@ class MemoCard {
     int lapses = 0,
     int stateIndex = 0, // new State
     String title = 'Empty title',
+    String? id ,
   })  : _knowledge = knowledge,
         _deck = deck,
         _title = title,
+        _id = id ?? Uuid().v4(),
         _card = Card.def(
-          // Inicialización directa
-          due ?? DateTime.now().toUtc(),
+          due ?? DateTime.now().add(Duration(minutes: 1)).toUtc(),
           lastReview ?? DateTime.now().toUtc(),
           stability,
           difficulty,
@@ -61,6 +64,17 @@ class MemoCard {
 
   /// The deck the [MemoCard] belongs to
   Deck get deck => _deck;
+
+  Card get card {
+    return _card;
+  }
+
+  set card(Card card) {
+    _card = card;
+  }
+
+  /// The id to identify the [MemoCard]
+  String get id => _id;
 
   /// Returns the learning state of [MemoCard].
   ///
@@ -98,17 +112,18 @@ class MemoCard {
     _card = schedulingCards[rates[rating]]!.card;
   }
 
-  Card get card {
-    return _card;
-  }
-
-  set card(Card card) {
-    _card = card;
+  @override
+  String toString() {
+    return 'Memorization Card for Knowledge: $_knowledge, with id: $id, with state: $state and due at: $due.';
   }
 
   @override
-  String toString() {
-    return 'Memorization Card for Knowledge: $_knowledge;'
-        ' with state: $state and due at: $due.';
-  }
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MemoCard &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
 }
