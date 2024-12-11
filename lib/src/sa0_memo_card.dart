@@ -2,7 +2,7 @@ import 'package:t3_memassist/memory_assistant.dart';
 
 class Sa0MemoCard extends MemoCard {
   Sa0MemoCard({
-    required dynamic sa0,
+    required dynamic encryptedSa0,
     required super.deck,
     super.due,
     super.lastReview,
@@ -16,10 +16,10 @@ class Sa0MemoCard extends MemoCard {
     super.id,
   }) : super(
           knowledge: {
-            'sa0': sa0,
+            'encryptedSa0': encryptedSa0,
           },
           title: 'Input Password Card',
         );
 
-  String get sa0 => knowledge['sa0'] as String;
+  String get encryptedSa0 => knowledge['encryptedSa0'] as String;
 }
